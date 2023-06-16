@@ -7,11 +7,12 @@ import PhotoList from './components/PhotoList';
 import TopicList from './components/TopicList';
 import topics from './mocks/topics';
 import photos from './mocks/photos';
+import TopNavigation from './components/TopNavigationBar';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => (
   <div className='App'>
-    <TopicList topics={topics} />
+    <TopNavigation />
     <PhotoList photos={photos} />
   </div>
 );
