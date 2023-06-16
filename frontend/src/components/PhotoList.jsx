@@ -3,26 +3,14 @@ import React from 'react';
 import '../styles/PhotoList.scss';
 import PhotoListItem from './PhotoListItem';
 
-const PhotoList = () => {
-  const renderPhotoListItems = () => {
-    // Create an array of three elements
-    const items = Array(3).fill(null);
-
-    // Map over the array and return the PhotoListItem component with desired props
-    return items.map((item, index) => (
-      <PhotoListItem
-        key={index} // Make sure to provide a unique key for each item
-        username={`User ${index + 1}`}
-        imageSource={`${process.env.PUBLIC_URL}/Image-${
-          index + 1
-        }-Regular.jpeg`}
-        id={`${index + 1}`}
-        profile={`${process.env.PUBLIC_URL}/profile-${index + 1}.jpg`}
-      />
-    ));
-  };
-
-  return <div className='photo-list '>{renderPhotoListItems()}</div>;
+const PhotoList = ({ photos }) => {
+  return (
+    <div className='photo-list '>
+      {photos.map(photo => (
+        <PhotoListItem key={photo.id} imageSource={photo.urls.regular} />
+      ))}
+    </div>
+  );
 };
 
 PhotoList.defaultProps = {
