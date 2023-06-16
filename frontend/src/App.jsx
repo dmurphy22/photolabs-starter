@@ -8,12 +8,12 @@ import TopicList from './components/TopicList';
 import topics from './mocks/topics';
 import photos from './mocks/photos';
 import TopNavigation from './components/TopNavigationBar';
+import HomeRoute from './components/HomeRoute';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => (
   <div className='App'>
-    <TopNavigation />
-    <PhotoList photos={photos} />
+    <HomeRoute />
   </div>
 );
 
