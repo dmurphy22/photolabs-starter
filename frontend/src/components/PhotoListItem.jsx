@@ -3,11 +3,11 @@ import React from 'react';
 import '../styles/PhotoListItem.scss';
 import PhotoFavButton from './PhotoFavButton';
 
-const PhotoListItem = props => {
+const PhotoListItem = ({ imageSource, isClicked, handleClick }) => {
   return (
     <div className='photo-list__item'>
-      <PhotoFavButton />
-      <img src={props.imageSource} className='photo-list__image' />
+      <PhotoFavButton isClicked={isClicked} handleClick={handleClick} />
+      <img src={imageSource} className='photo-list__image' alt='' />
     </div>
   );
 };
