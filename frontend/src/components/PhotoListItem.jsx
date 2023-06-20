@@ -1,26 +1,37 @@
 import React from 'react';
-
 import '../styles/PhotoListItem.scss';
 import PhotoFavButton from './PhotoFavButton';
 
-const PhotoListItem = ({ imageSource, isClicked, handleClick }) => {
+const PhotoListItem = ({
+  imageSource,
+  handleClick,
+  isFav,
+  photo,
+  handleFavClick,
+}) => {
+  const clickPhoto = () => {
+    setSeeDetails(true);
+    setID(props.id);
+  };
   return (
     <div className='photo-list__item'>
-      <PhotoFavButton isClicked={isClicked} handleClick={handleClick} />
-      <img src={imageSource} className='photo-list__image' alt='' />
+      <PhotoFavButton handleFavClick={handleFavClick} isFav={isFav} />
+      <img
+        src={imageSource}
+        className='photo-list__image'
+        onClick={handleClick}
+      />
+      <div className='photo-list__user-details'>
+        <img src={photo.user.profile} className='photo-list__user-profile' />
+        <div>
+          <div className='photo-list__user-info'>{photo.user.name}</div>
+          <span className='photo-list__user-location'>
+            {photo.location.city}, {photo.location.country}
+          </span>
+        </div>
+      </div>
     </div>
   );
-};
-
-PhotoListItem.defaultProps = {
-  id: '1',
-  location: {
-    city: 'Montreal',
-    country: 'Canada',
-  },
-  imageSource: `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
-  username: 'Joe Example',
-  profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
 };
 
 export default PhotoListItem;

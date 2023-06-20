@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
-
 import '../styles/HomeRoute.scss';
 import TopNavigation from './TopNavigationBar';
 import PhotoList from './PhotoList';
+import PhotoDetailsModal from '../routes/PhotoDetailsModal';
 import photos from '../mocks/photos';
 
-const HomeRoute = () => {
-  const [isClicked, setIsClicked] = useState(false);
-
-  const handleClick = () => {
-    setIsClicked(!isClicked);
-  };
-
+const HomeRoute = props => {
   return (
     <div className='home-route'>
-      <TopNavigation />
+      <TopNavigation favPhotosID={props.favPhotosID} />
       <PhotoList
         photos={photos}
-        isClicked={isClicked}
-        handleClick={handleClick}
+        handleClick={props.handleModalClick}
+        favPhotosID={props.favPhotosID}
+        setFavPhotosID={props.setFavPhotosID}
+        handleFavClick={props.updateToFavPhotosIDs}
       />
     </div>
   );

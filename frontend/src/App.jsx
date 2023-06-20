@@ -1,20 +1,35 @@
-import React from 'react';
-
-import PhotoListItem from './components/PhotoListItem';
+import React, { useState } from 'react';
 import './App.scss';
-import ParentPhotoListItem from './components/ParentPhotoListItem';
-import PhotoList from './components/PhotoList';
-import TopicList from './components/TopicList';
-import topics from './mocks/topics';
-import photos from './mocks/photos';
-import TopNavigation from './components/TopNavigationBar';
 import HomeRoute from './components/HomeRoute';
+import PhotoDetailsModal from './routes/PhotoDetailsModal';
+import photos from './mocks/photos';
+import topics from './mocks/topics';
+import useApplicationData from './hooks/useApplicationData';
 
-// Note: Rendering a single component to build components in isolation
-const App = () => (
-  <div className='App'>
-    <HomeRoute />
-  </div>
-);
+const App = () => {
+  const { state, updateToFavPhotosIDs, handleModalClick, handleCloseModal } =
+    useApplicationData();
+
+  return (
+    <div className='App'>
+      <HomeRoute
+        photos={photos}
+        topics={topics}
+        favPhotosID={state.favPhotosID}
+        updateToFavPhotosIDs={updateToFavPhotosIDs}
+        handleModalClick={handleModalClick}
+      />
+      {state.isModalVisible && (
+        <PhotoDetailsModal
+          photo={state.selectedPhoto}
+          handleCloseModal={handleCloseModal}
+          favPhotosID={state.favPhotosID}
+          setFavPhotosID={state.setFavPhotosID}
+          handleFavClick={updateToFavPhotosIDs}
+        />
+      )}
+    </div>
+  );
+};
 
 export default App;

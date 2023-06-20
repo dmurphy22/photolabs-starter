@@ -2,19 +2,22 @@ import React from 'react';
 
 import { FavIcon } from './FavIcon';
 import '../styles/PhotoFavButton.scss';
-import FavBadge from './FavBadge';
 
-const PhotoFavButton = ({ isClicked, handleClick }) => {
+function PhotoFavButton(props) {
+  const { handleClick, isFav, handleFavClick } = props;
+
   return (
-    <div
-      className={`photo-list__fav-icon ${isClicked ? 'clicked' : ''}`}
-      onClick={handleClick}
-    >
+    <div onClick={handleFavClick} className='photo-list__fav-icon'>
       <div className='photo-list__fav-icon-svg'>
-        <FavBadge isClicked={isClicked} />
+        <FavIcon
+          fill={isFav ? '#FF0000' : '#EEEEEE'}
+          height='27'
+          width='25'
+          outlineWidth=''
+        />
       </div>
     </div>
   );
-};
+}
 
 export default PhotoFavButton;
