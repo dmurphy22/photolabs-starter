@@ -1,5 +1,6 @@
 # react-photolabs
-The PhotoLabs project for the Web Development React course programming.
+
+This is a simple image viewer with favorite, and modal support.
 
 # Photolabs
 
