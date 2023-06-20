@@ -6,8 +6,13 @@ import useApplicationData from './hooks/useApplicationData';
 import axios from 'axios';
 
 const App = () => {
-  const { state, updateToFavPhotosIDs, handleModalClick, handleCloseModal } =
-    useApplicationData();
+  const {
+    state,
+    updateToFavPhotosIDs,
+    handleModalClick,
+    handleCloseModal,
+    getPhotosByTopicID,
+  } = useApplicationData();
 
   return (
     <div className='App'>
@@ -17,6 +22,7 @@ const App = () => {
         favPhotosID={state.favPhotosID}
         updateToFavPhotosIDs={updateToFavPhotosIDs}
         handleModalClick={handleModalClick}
+        getPhotosByTopicID={getPhotosByTopicID}
       />
       {state.isModalVisible && (
         <PhotoDetailsModal

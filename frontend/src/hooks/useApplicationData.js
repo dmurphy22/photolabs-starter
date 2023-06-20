@@ -85,6 +85,7 @@ const useApplicationData = () => {
     updateToFavPhotosIDs,
     handleModalClick,
     handleCloseModal,
+    getPhotosByTopicID,
   };
 };
 

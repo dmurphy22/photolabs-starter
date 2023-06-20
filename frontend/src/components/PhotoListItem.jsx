@@ -9,10 +9,6 @@ const PhotoListItem = ({
   photo,
   handleFavClick,
 }) => {
-  const clickPhoto = () => {
-    setSeeDetails(true);
-    setID(props.id);
-  };
   return (
     <div className='photo-list__item'>
       <PhotoFavButton handleFavClick={handleFavClick} isFav={isFav} />

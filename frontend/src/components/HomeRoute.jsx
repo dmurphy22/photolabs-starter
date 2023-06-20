@@ -6,7 +6,11 @@ import PhotoList from './PhotoList';
 const HomeRoute = props => {
   return (
     <div className='home-route'>
-      <TopNavigation favPhotosID={props.favPhotosID} topics={props.topics} />
+      <TopNavigation
+        favPhotosID={props.favPhotosID}
+        topics={props.topics}
+        getPhotosByTopicID={props.getPhotosByTopicID}
+      />
       <PhotoList
         photos={props.photos}
         handleClick={props.handleModalClick}
