@@ -10,8 +10,6 @@ export const PhotoDetailsModal = ({
   setFavPhotosID,
   handleFavClick,
 }) => {
-  console.log('similar: ', Object.values(photo.similar_photos));
-
   let favArr = [];
 
   return (

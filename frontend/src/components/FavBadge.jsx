@@ -4,7 +4,6 @@ import FavIcon from './FavIcon';
 import '../styles/FavBadge.scss';
 
 export const FavBadge = ({ isFavPhotoExist }) => {
-  console.log('test', isFavPhotoExist);
   return (
     <div className='fav-badge'>
       <FavIcon
