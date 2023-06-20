@@ -8,22 +8,12 @@ import axios from 'axios';
 const App = () => {
   const { state, updateToFavPhotosIDs, handleModalClick, handleCloseModal } =
     useApplicationData();
-  const [photos, setPhotos] = useState([]);
-  const [topics, setTopics] = useState([]);
-
-  useEffect(() => {
-    axios.get('/api/photos').then(res => setPhotos(res.data));
-  });
-
-  useEffect(() => {
-    axios.get('/api/topics').then(res => setTopics(res.data));
-  });
 
   return (
     <div className='App'>
       <HomeRoute
-        photos={photos}
-        topics={topics}
+        photos={state.photos}
+        topics={state.topics}
         favPhotosID={state.favPhotosID}
         updateToFavPhotosIDs={updateToFavPhotosIDs}
         handleModalClick={handleModalClick}
